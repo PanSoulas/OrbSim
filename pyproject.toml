@@ -1,0 +1,41 @@
+[build-system]
+requires = ["scikit-build-core>=0.9", "pybind11>=2.12"]
+build-backend = "scikit-build-core.build"
+
+[project]
+name = "orbsim"
+version = "0.1.0"
+description = "Hybrid satellite orbit simulation library with 3D visualization"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Panos", email = "you@example.com" }]
+keywords = ["satellite", "orbit", "simulation", "sgp4", "astrodynamics"]
+dependencies = [
+    "numpy>=1.26",
+    "requests>=2.31",
+    "plotly>=5.20",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0",
+        "pytest-cov>=5.0",
+        "ruff>=0.4"]
+docs = ["mkdocs>=1.6",
+        "mkdocs-material>=9,5"]
+
+[project.scripts]
+orbsim = "orbsim.cli.main:cli"
+
+[tool.scikit-build]
+cmake.build-type = "Release"
+wheel.packages = ["src/orbsim"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short"
+
+[tool.ruff]
+src = ["src"]
+line-length = 88
