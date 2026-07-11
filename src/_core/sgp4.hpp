@@ -18,4 +18,7 @@ namespace orbsim{
         std::array<double, 3> position_km;
         std::array<double, 3> velocity_km_per_sec;
     };
+    
+    
+    StateVector sgp4_propagate(const TLEElements &element , double time_offset);
 }
