@@ -1,5 +1,6 @@
 from orbsim._core import sgp4_propagate, eci_to_ecef, ecef_to_geographic
 from orbsim._core import TLEElements, StateVector, ECEFVector, Geographic
+from orbsim.core.tle import parse_tle
 
 class Satellite:
     def __init__(self, name, norad_id, tle):
@@ -9,7 +10,8 @@ class Satellite:
 
     @classmethod
     def from_tle(cls, name, norad_id, tle_string):
-        pass
+        parsed_tle = parse_tle(tle_string)
+        return cls(name, norad_id, parsed_tle)
 
     def propagate(self, delta_minutes):
         return sgp4_propagate(self.tle, delta_minutes)
