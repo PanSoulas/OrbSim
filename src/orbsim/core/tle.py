@@ -13,7 +13,10 @@ def parse_tle(tle_string: str) -> TLEElements:
 
     tle = TLEElements()
     tle.epoch_jd = float(line1[18:32].strip())
-    tle.bstar = float(line1[53:61].strip())
+    raw = line1[53:61].strip()
+    mantissa = raw[:-2]
+    exponent = int(raw[-2:])
+    tle.bstar = float("0." + mantissa) * (10 ** exponent)
     tle.eccentricity = float(f"0.{line2[26:33].strip()}")
     
     tle.inclination = float(line2[8:16].strip()) * math.pi / 180.0
