@@ -50,6 +50,8 @@ Options:
 
 ## Architecture
 
+OrbSim uses a hybrid Python/C++ architecture. The performance-critical inner loop — SGP4 propagation and coordinate transforms — is implemented in C++17 and exposed to Python via pybind11. Everything else — TLE parsing, analysis, visualization, and the CLI — is pure Python. This gives users the ease of a Python library with the speed of compiled code.
+
 ```
 ORBSIM/
 ├── README.md
@@ -76,5 +78,40 @@ ORBSIM/
         ├──sgp4.hpp
     ├──orbsim
         ├──__init__.py
-        ├──analy
+        ├──analysis/
+            ├──__init__.py
+            ├──conjunction.py
+            ├──ground_track.py
+            ├──passes.py
+        ├──cli/
+            ├──__init__.py
+            ├──main.py
+        ├──core/
+            ├──__init__.py
+            ├──propagator.py
+            ├──satellite.py
+            ├──tle.py
+        ├──models/
+            ├──__init__.py
+            ├──drag.py
+            ├──j2.py
+        ├──pluggins/
+            ├──__init__.py
+            ├──base.py
+        ├──viz/
+            ├──__init__.py
+            ├──ground_track_2d.py
+            ├──renderer_3d.py
+├──tests
+    ├──fixtures/
+        ├──sample.tle
+    ├──integration/
+        ├──test_pipeline.py
+    ├──unit/
+        ├──test_coords.py
+        ├──test_sgp4.py
+        ├──test_tle.py        
 ```
+
+## License
+ MIT
