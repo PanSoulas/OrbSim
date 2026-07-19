@@ -15,11 +15,12 @@ A hybrid Python/C++ Satellite orbit simulation library with 3D ground track visu
 - Extensible plugin architecture for custom propagators 
 
 ## Installation
-
 1. Prerequisites:
+```bash
 a) Python 3.10+
 b) CMake 3.20+
 c) C++ 17 compiler
+```
 
 2. Install commands:
 
@@ -114,4 +115,4 @@ ORBSIM/
 ```
 
 ## License
- MIT
+This project is open source and available under the MIT License.
