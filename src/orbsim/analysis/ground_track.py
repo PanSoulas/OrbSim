@@ -5,7 +5,7 @@ from datetime import datetime
 from datetime import timedelta
 from orbsim.core import datetime_to_gst
 
-def compute_ground_track(satellite: Satellite, start_time: datetime.datetime, end_time: datetime.datetime, step_minutes: float):
+def compute_ground_track(satellite: Satellite, start_time: datetime, end_time: datetime, step_minutes: float):
     delta_start = delta_minutes_from_epoch(start_time, satellite.tle)
     delta_end = delta_minutes_from_epoch(end_time, satellite.tle)
 
