@@ -1,4 +1,5 @@
 # Orbsim
+![CI](https://github.com/PanSoulas/OrbSim/actions/workflows/ci.yml/badge.svg)
 
 A hybrid Python/C++ Satellite orbit simulation library with 3D ground track visualization.
 
