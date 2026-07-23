@@ -1,6 +1,14 @@
 from orbsim._core import TLEElements
 import math
+import requests
 
+def fetch_tle(satellite_name: str) -> TLEElements:
+    url = f"https://celestrak.org/NORAD/elements/gp.php?NAME={satellite_name}&FORMAT=TLE"
+    response = requests.get(url)
+    response.raise_for_status()
+    lines = response.text.strip().splitlines()
+    tle_string = "\n".join(lines[:3])
+    return parse_tle(tle_string)
 
 def parse_tle(tle_string: str) -> TLEElements:
     lines = tle_string.strip().splitlines()
