@@ -4,3 +4,4 @@ __pycache__/
 *.so
 *.egg-info/
 dist/
+.venv/
