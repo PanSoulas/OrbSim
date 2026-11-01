@@ -17,24 +17,51 @@ A hybrid Python/C++ Satellite orbit simulation library with 3D ground track visu
 - Extensible plugin architecture for custom propagators 
 
 ## Installation
-1. Prerequisites:
+
+### 1. Prerequisites
+
+You need Python 3.10+, CMake 3.20+ and a C++17 compiler.
+
 ```bash
-a) Python 3.10+
-b) CMake 3.20+
-c) C++ 17 compiler
+# Arch / CachyOS
+sudo pacman -S python base-devel cmake
+
+# Debian / Ubuntu
+sudo apt install python3 python3-venv python3-dev build-essential cmake
+
+# Fedora
+sudo dnf install python3 python3-devel gcc-c++ cmake
+
+# macOS
+xcode-select --install
+brew install cmake
 ```
 
-2. Install commands:
+### 2. Install from source
 
 ```bash
-# Install from PyPI (coming soon)
-pip install orbsim
-
-# Install from source (development)
 git clone https://github.com/PanSoulas/OrbSim.git
 cd OrbSim
+python -m venv .venv
+source .venv/bin/activate        # fish: source .venv/bin/activate.fish
 pip install -e ".[dev]"
 ```
+
+A virtual environment is required on most modern Linux distributions,
+which block system-wide `pip install` (PEP 668).
+
+### 3. Verify
+
+```bash
+pytest
+orbsim simulate --tle iss.txt --duration 90 --step 1
+```
+
+If the tests pass and the globe visualization opens, the installation worked.
+
+> A PyPI release (`pip install orbsim`) is planned.
+
+
 
 ## Usage
 
