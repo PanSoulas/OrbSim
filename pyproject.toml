@@ -9,7 +9,7 @@ description = "Hybrid satellite orbit simulation library with 3D visualization"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Panos", email = "you@example.com" }]
+authors = [{ name = "Panos" }]
 keywords = ["satellite", "orbit", "simulation", "sgp4", "astrodynamics"]
 dependencies = [
     "numpy>=1.26",
