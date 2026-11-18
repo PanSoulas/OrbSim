@@ -43,3 +43,8 @@ addopts = "--tb=short"
 [tool.ruff]
 src = ["src"]
 line-length = 88
+
+[tool.cibuildwheel]
+skip = "pp* *-musllinux_*"
+test-requires = "pytest"
+test-command = "pytest {project}/tests/unit"
