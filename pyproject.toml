@@ -33,6 +33,7 @@ docs = [
 orbsim = "orbsim.cli.main:cli"
 
 [tool.scikit-build]
+sdist.exclude = ["site", ".github", "docs", "mkdocs.yml"]
 cmake.build-type = "Release"
 wheel.packages = ["src/orbsim"]
 
